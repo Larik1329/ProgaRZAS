@@ -1,0 +1,63 @@
+﻿@model kakoyzheyadebil.Domain.РябСотрудники
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "Crasota";
+}
+
+<h1>Create</h1>
+
+<h4>РябСотрудники</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="РябФамилия" class="control-label"></label>
+                <input asp-for="РябФамилия" class="form-control" />
+                <span asp-validation-for="РябФамилия" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="РябИмя" class="control-label"></label>
+                <input asp-for="РябИмя" class="form-control" />
+                <span asp-validation-for="РябИмя" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="РябОтчество" class="control-label"></label>
+                <input asp-for="РябОтчество" class="form-control" />
+                <span asp-validation-for="РябОтчество" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="РябАдрес" class="control-label"></label>
+                <input asp-for="РябАдрес" class="form-control" />
+                <span asp-validation-for="РябАдрес" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="РябТелефон" class="control-label"></label>
+                <input asp-for="РябТелефон" class="form-control" />
+                <span asp-validation-for="РябТелефон" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="РябIdДолжности" class="control-label"></label>
+                <select asp-for="РябIdДолжности" class ="form-control" asp-items="ViewBag.РябIdДолжности"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="РябАдресШифр" class="control-label"></label>
+                <input asp-for="РябАдресШифр" class="form-control" />
+                <span asp-validation-for="РябАдресШифр" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

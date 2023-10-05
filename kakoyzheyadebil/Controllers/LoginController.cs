@@ -1,15 +1,27 @@
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using kakoyzheyadebil.Domain;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.IdentityModel.Tokens;
 
 namespace kakoyzheyadebil.Controllers
 {
-    [ApiController]
-    [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    [Route("Account/[action]")]
+    public class LoginController : Controller
     {
         [HttpGet(Name = "Login")]
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost(Name = "Login")]
         public async Task<IActionResult> Login(string login, string password)
         {
             if (login is not null)
@@ -22,7 +34,6 @@ namespace kakoyzheyadebil.Controllers
 
                     var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                     await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
-                    return Ok();
                 }
                 else if (login.Equals("user", StringComparison.CurrentCultureIgnoreCase) && password.Equals("user"))
                 {
@@ -32,10 +43,34 @@ namespace kakoyzheyadebil.Controllers
 
                     var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                     await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
-                    return Ok();
                 }
+
+                var returnUrl = HttpContext.Request.Query["ReturnUrl"].ToString();
+                if (returnUrl.IsNullOrEmpty())
+                {
+                    returnUrl = "/Personel/Index";
+                }
+
+                return Redirect(returnUrl);
             }
-            return BadRequest();
+            ViewData["Error"] = "Пошёл нахуй";
+            return View();
+        }
+
+        [HttpGet(Name = "Logout")]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+            return RedirectToAction(nameof(Login));
+        }
+
+        [HttpGet(Name = "AccessDenied")]
+        public IActionResult AccessDenied()
+        {
+            var returnUrl = "/Personel/Index";
+
+            ViewData["Return"] = returnUrl;
+            return View();
         }
     }
 }
