@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProgaRZAS", "kakoyzheyadebil\ProgaRZAS.csproj", "{7CF2AB1E-0D8F-474A-9712-178313E77C1A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProgaRZAS", "ProgaRZAS\ProgaRZAS.csproj", "{790D401A-2B73-44BE-82E6-0A0CD99652F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7CF2AB1E-0D8F-474A-9712-178313E77C1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7CF2AB1E-0D8F-474A-9712-178313E77C1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7CF2AB1E-0D8F-474A-9712-178313E77C1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7CF2AB1E-0D8F-474A-9712-178313E77C1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{790D401A-2B73-44BE-82E6-0A0CD99652F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{790D401A-2B73-44BE-82E6-0A0CD99652F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{790D401A-2B73-44BE-82E6-0A0CD99652F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{790D401A-2B73-44BE-82E6-0A0CD99652F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
