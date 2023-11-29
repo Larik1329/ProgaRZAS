@@ -1,0 +1,68 @@
+﻿@model ProgaRZAS.Domain.ВанСотрудники
+
+@{
+    ViewData["Title"] = "Vistavka";
+    Layout = "Vistavka";
+}
+
+<h1>Create</h1>
+
+<h4>ВанСотрудники</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ВанIdСотрудника" class="control-label"></label>
+                <input asp-for="ВанIdСотрудника" class="form-control" />
+                <span asp-validation-for="ВанIdСотрудника" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ВанФамилия" class="control-label"></label>
+                <input asp-for="ВанФамилия" class="form-control" />
+                <span asp-validation-for="ВанФамилия" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ВанИмя" class="control-label"></label>
+                <input asp-for="ВанИмя" class="form-control" />
+                <span asp-validation-for="ВанИмя" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ВанОтчество" class="control-label"></label>
+                <input asp-for="ВанОтчество" class="form-control" />
+                <span asp-validation-for="ВанОтчество" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ВанАдрес" class="control-label"></label>
+                <input asp-for="ВанАдрес" class="form-control" />
+                <span asp-validation-for="ВанАдрес" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ВанТелефон" class="control-label"></label>
+                <input asp-for="ВанТелефон" class="form-control" />
+                <span asp-validation-for="ВанТелефон" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ВанIdДолжности" class="control-label"></label>
+                <select asp-for="ВанIdДолжности" class ="form-control" asp-items="ViewBag.ВанIdДолжности"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ВанАдресШифр" class="control-label"></label>
+                <input asp-for="ВанАдресШифр" class="form-control" />
+                <span asp-validation-for="ВанАдресШифр" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

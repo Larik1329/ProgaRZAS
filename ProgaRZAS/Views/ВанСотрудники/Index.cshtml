@@ -1,0 +1,77 @@
+﻿@model IEnumerable<ProgaRZAS.Domain.ВанСотрудники>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "Vistavka";
+}
+
+<h1>Index</h1>
+
+<form method="get" action="Find">
+    <input type="text" name="name" />
+    <input type="submit" value="find by name" class="btn btn-primary" />
+</form>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table id="customers">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ВанФамилия)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ВанИмя)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ВанОтчество)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ВанАдрес)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ВанТелефон)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ВанАдресШифр)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ВанIdДолжностиNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ВанФамилия)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ВанИмя)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ВанОтчество)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ВанАдрес)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ВанТелефон)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ВанАдресШифр)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ВанIdДолжностиNavigation.ВанIdДолжности)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ВанIdСотрудника">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ВанIdСотрудника">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ВанIdСотрудника">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

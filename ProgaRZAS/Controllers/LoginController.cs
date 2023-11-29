@@ -4,13 +4,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using kakoyzheyadebil.Domain;
+using ProgaRZAS.Domain;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.IdentityModel.Tokens;
 
-namespace kakoyzheyadebil.Controllers
+namespace ProgaRZAS.Controllers
 {
     [Route("Account/[action]")]
     public class LoginController : Controller
@@ -24,7 +24,7 @@ namespace kakoyzheyadebil.Controllers
         [HttpPost(Name = "Login")]
         public async Task<IActionResult> Login(string login, string password)
         {
-            if (login is not null)
+            if (login is not null && password is not null)
             {
                 if (login.Equals("admin", StringComparison.CurrentCultureIgnoreCase) && password.Equals("admin"))
                 {
@@ -53,7 +53,7 @@ namespace kakoyzheyadebil.Controllers
 
                 return Redirect(returnUrl);
             }
-            ViewData["Error"] = "Пошёл нахуй";
+            ViewData["Error"] = "Ошибка, неверные креды";
             return View();
         }
 
